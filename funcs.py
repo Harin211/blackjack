@@ -1,18 +1,40 @@
 
-from random import randint
+import random
+
+#dealer stands if value is 17 or lesser
+
+class Game:
+    def __init__(self):
+        self.cards = make_deck()
+        self.dealer_cards = []
+        self.player_cards = []
+
+    def inital_cards(self):
+        for i in range(2): self.player_cards.append(self.cards.pop())
+
+
+        for i in range(2): self.dealer_cards.append(self.cards.pop())
+
+        
+
+
+
+
+
 
 def make_deck():
     cards = []
     suits = ["spades", "clubs", "diamonds", "hearts"]
 
-    cards = [(suit, value) for value in range(2,14) for suit in suits]
-    
+    cards = [(suit, value) for value in range(2,15) for suit in suits]
+    random.shuffle(cards)
+    print(len(cards))
     return cards
 
 
 def card_value(card_tuple):
 
-    if (card_tuple[1] >= 10 and card_tuple[1] < 14):
+    if (card_tuple[1] >= 10 and card_tuple[1] < 15):
         return 10
     if (card_tuple[1] == 14):
         return 11
@@ -34,7 +56,7 @@ def player_loop(cards):
         if (val == 2):
             break
 
-        index = randint(0,51)
+        index = random.randint(0,51)
         card = cards[index]
         print("")
         print(f"You got {card[1]} {card[0]}")

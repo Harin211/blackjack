@@ -5,8 +5,10 @@ from funcs import *
 
 def main():
 
-    cards = make_deck()
-    player_point = player_loop(cards)
+    game = Game()
+    # print(len(game.cards))
+    game.inital_cards()
+    # print(len(game.cards))
     
 
 
